@@ -2,6 +2,7 @@ package ru.job4j.iterator;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -89,5 +90,11 @@ public class MatrixItTest {
         int[][] in = {{}, {}, {}};
         MatrixIt it = new MatrixIt(in);
         assertThat(it.hasNext(), is(false));
+    }
+    @Test
+    public void whenOneElements() {
+        int[][] in = {{}, {1}, {}};
+        MatrixIt it = new MatrixIt(in);
+        assertTrue(it.hasNext());
     }
 }
