@@ -20,9 +20,8 @@ public class Generics {
         gen.printObject(third);
         System.out.println();
 
-        /*Ограничение сверху, first имеет тип Animal
-         * метод допускает Predator и его потомки
-         *gen.printBoundedWildCard(first)
+        /*
+        gen.printBoundedWildCard(first)
          */
         gen.printBoundedWildCard(second);
         gen.printBoundedWildCard(third);
@@ -30,9 +29,8 @@ public class Generics {
 
         gen.printLowerBoundedWildCard(first);
         gen.printLowerBoundedWildCard(second);
-        /* Ограничение снизу, third имеет тип Tiger
-         * метод допускает Predator и его предки
-         *gen.printLowerBoundedWildCard(third);
+        /*
+        gen.printLowerBoundedWildCard(third);
          */
     }
 
