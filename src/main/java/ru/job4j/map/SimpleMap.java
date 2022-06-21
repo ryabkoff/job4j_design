@@ -15,8 +15,8 @@ public class SimpleMap<K, V> implements Map<K, V> {
             expand();
         }
         int i = indexFor(hash(key.hashCode()));
-        boolean rsl = table[i] != null;
-        if (!rsl) {
+        boolean rsl = table[i] == null;
+        if (rsl) {
             table[i] = new MapEntry<>(key, value);
             count++;
             modCount++;
@@ -34,19 +34,26 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     private void expand() {
         capacity *= 2;
-        table = Arrays.copyOf(table, capacity);
+        MapEntry<K, V>[] newTable = new MapEntry[capacity];
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null) {
+                newTable[indexFor(hash(table[i].key.hashCode()))] = table[i];
+            }
+        }
+        table = newTable;
     }
 
     @Override
     public V get(K key) {
         int i = indexFor(hash(key.hashCode()));
-        return table[i] == null ? null : table[i].value;
+        return table[i] == null || !key.equals(table[i].key)
+                ? null : table[i].value;
     }
 
     @Override
     public boolean remove(K key) {
         int i =  indexFor(hash(key.hashCode()));
-        boolean rsl = table[i] != null;
+        boolean rsl = table[i] != null && key.equals(table[i].key);
         if (table[i] != null) {
             table[i] = null;
             count--;
