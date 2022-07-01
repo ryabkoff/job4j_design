@@ -20,9 +20,9 @@ public class Config {
     public void load() {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             for (String line = read.readLine(); line != null; line = read.readLine()) {
-                if (!"".equals(line) && !line.startsWith("#")) {
+                if (!line.isBlank() && !line.startsWith("#")) {
                     String[] s = line.split("=", 2);
-                    if (s.length < 2 || "".equals(s[0]) || "".equals(s[1])) {
+                    if (s.length < 2 || s[0].isBlank() || s[1].isBlank()) {
                         throw new IllegalArgumentException("Incorrect parameter line");
                     } else {
                         values.put(s[0], s[1]);
