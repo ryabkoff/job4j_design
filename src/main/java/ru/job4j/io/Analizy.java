@@ -17,6 +17,9 @@ public class Analizy {
                     period = "";
                 }
             }
+            if (!period.isBlank()) {
+                out.println(period);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
