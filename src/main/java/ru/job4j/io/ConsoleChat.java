@@ -40,7 +40,6 @@ public class ConsoleChat {
                 continue;
             } else if (CONTINUE.equals(userPhrase)) {
                 allowTalking = true;
-                continue;
             }
             if (allowTalking) {
                 String compPhrase = randomPhrase(botPhrases);
