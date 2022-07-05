@@ -1,12 +1,9 @@
 package ru.job4j.io;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
