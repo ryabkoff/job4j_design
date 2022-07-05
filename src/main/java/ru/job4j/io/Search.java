@@ -1,5 +1,6 @@
 package ru.job4j.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,6 +25,16 @@ public class Search {
         if (params.length != 2) {
             throw new IllegalArgumentException("Invalid number of parameters. There must be two, "
                     + "1 - start dir, 2 - extension");
+        }
+        File file = new File(params[0]);
+        if (!file.exists()) {
+            throw new IllegalArgumentException("Strart dir doesn't exist");
+        }
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException("Start dir isn't directory");
+        }
+        if (!params[1].startsWith(".")) {
+            throw new IllegalArgumentException("Extension doesn't start with '.'");
         }
     }
 }
