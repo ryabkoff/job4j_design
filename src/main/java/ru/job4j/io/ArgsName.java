@@ -25,7 +25,8 @@ public class ArgsName {
                     || !s[0].startsWith("-")
                     || "-".equals(s[0])
                     || s[1].isBlank()) {
-                throw new IllegalArgumentException("Arguments must be given as -key=value");
+                throw new IllegalArgumentException(String.format("Incorrect argument '%s'. "
+                        + "Arguments must be given as '-key=value'", arg));
             }
         }
     }

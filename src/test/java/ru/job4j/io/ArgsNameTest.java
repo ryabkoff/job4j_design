@@ -50,4 +50,9 @@ public class ArgsNameTest {
     public void whenMinusMissed() {
         ArgsName jvm = ArgsName.of(new String[] {"Xmx=512"});
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void whenEqMissed() {
+        ArgsName jvm = ArgsName.of(new String[] {"-Xmx:512"});
+    }
 }
