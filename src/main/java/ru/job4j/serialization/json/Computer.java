@@ -27,4 +27,24 @@ public class Computer {
                 + ", os" + os
                 + '}';
     }
+
+    public boolean isNotebook() {
+        return isNotebook;
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public String[] getDevices() {
+        return devices;
+    }
+
+    public OS getOs() {
+        return os;
+    }
 }

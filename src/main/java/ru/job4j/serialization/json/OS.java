@@ -13,4 +13,8 @@ public class OS {
                 + "phone='" + name + '\''
                 + '}';
     }
+
+    public String getName() {
+        return name;
+    }
 }
