@@ -32,7 +32,8 @@ public class Find {
         } else if ("mask".equals(t)) {
             cond = path -> path.getFileName()
                     .toString()
-                    .matches(n.replace("?", ".?")
+                    .matches(n.replace(".", "[.]")
+                            .replace("?", ".?")
                             .replace("*", ".*?"));
         } else {
             cond = path -> path.getFileName()
