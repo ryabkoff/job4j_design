@@ -1,0 +1,14 @@
+ create table books(
+     id serial primary key,
+     name varchar(255),
+     author varchar(100),
+     pages int);
+    
+insert into books(name, author, pages) 
+    values ('Руслан и Людмила', 'Пушкин А.С.', 219);
+
+update books set pages = 192;
+
+delete from books;
+
+select * from books;
