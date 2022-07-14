@@ -61,10 +61,10 @@ where cars.id is null;
 
 -- 3. Вывести двигатели, которые не используются НИ в одной машине. 
 select car_engines.name from car_engines
-    left join cars on car_engines.id = cars.body_id
+    left join cars on car_engines.id = cars.engine_id
 where cars.id is null;
 
 -- 4. Вывести коробки передач, которые не используются НИ в одной машине. 
 select car_transmissions.name from car_transmissions
-    left join cars on car_transmissions.id = cars.body_id
+    left join cars on car_transmissions.id = cars.transmission_id
 where cars.id is null;
