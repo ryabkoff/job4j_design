@@ -50,9 +50,7 @@ where p.expired_date <= current_date;
 
 --4. Написать запрос, который выводит самый дорогой продукт.
 select p.name, p.price from product as p
-WHERE p.price is not null
-order by p.price DESC
-limit 1;
+    where p.price = (select max(p.price) from product as p)
 
 --5. Написать запрос, который выводит для каждого типа количество продуктов к нему принадлежащих.
 --В виде имя_типа, количество
@@ -76,4 +74,4 @@ having count(p.id) < 10;
 
 --8. Вывести все продукты и их тип.
 select p.name, t.name from product as p
-     join type as t on p.type_id = t.id
+     join type as t on p.type_id = t.id;
