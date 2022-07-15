@@ -33,9 +33,8 @@ public class ImportDB {
                         || data[1].isBlank()) {
                     throw new IllegalArgumentException(String.format("Incorrect format in line number %s: %s",
                             num, line));
-                } else {
-                    users.add(new User(data[0], data[1]));
                 }
+                users.add(new User(data[0], data[1]));
             }
         }
         return users;
