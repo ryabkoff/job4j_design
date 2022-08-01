@@ -3,7 +3,7 @@ package ru.job4j.cache;
 import java.util.Scanner;
 
 public class Emulator {
-    public static final String MENU = """
+    public static final String MENU = """   
                 Введите 1. Загрузить содержимое файла в кэш
                 Введите 2. Получить содержимое файла из кэша
                 Введите любое другое число для выхода.""";
