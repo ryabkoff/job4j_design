@@ -3,15 +3,15 @@ package ru.job4j.cache;
 import java.util.Scanner;
 
 public class Emulator {
-    private static final String MENU = """
+    public static final String MENU = """
                 Введите 1. Загрузить содержимое файла в кэш
                 Введите 2. Получить содержимое файла из кэша
                 Введите любое другое число для выхода.
             """;
 
-    private static final int PUT_CACHE = 1;
+    public static final int PUT_CACHE = 1;
 
-    private static final int GET_CACHE = 2;
+    public static final int GET_CACHE = 2;
 
     private static String inputFileName(Scanner scanner) {
         System.out.print("Введите имя файла: ");
