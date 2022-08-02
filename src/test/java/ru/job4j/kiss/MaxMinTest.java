@@ -27,4 +27,12 @@ public class MaxMinTest {
                 Comparator.comparingInt(l -> l));
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void whenEmptyList() {
+        MaxMin maxMin = new MaxMin();
+        Integer result = maxMin.min(List.of(),
+                Comparator.comparingInt(l -> l));
+        assertNull(result);
+    }
 }

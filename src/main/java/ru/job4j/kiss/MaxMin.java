@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class MaxMin {
 
     private <T> T comp(List<T> value, Comparator<T> comparator, Predicate<Integer> predicate) {
-        T rsl = value.get(0);
+        T rsl = value.isEmpty() ? null : value.get(0);
         for (int i = 1; i < value.size(); i++) {
             if (predicate.test(comparator.compare(value.get(i), rsl))) {
                 rsl = value.get(i);
