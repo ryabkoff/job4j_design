@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CinemaTest {
@@ -57,7 +58,7 @@ public class CinemaTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2022, 8, 30, 9, 0);
+        cinema.buy(account, 1, 1, date);
         assertThatIllegalArgumentException().isThrownBy(() -> {
             cinema.buy(account, 1, 1, date);
         });
