@@ -10,7 +10,8 @@ import static ru.job4j.design.srp.ReportEngine.DATE_FORMAT;
 
 public class ReportAccTest {
 
-    private static final double EXCHANGE_RATE = 70;
+    public static final double EXCHANGE_RATE = 70;
+
     @Test
     public void whenOldGenerated() {
         MemStore store = new MemStore();
