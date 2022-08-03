@@ -25,7 +25,7 @@ public class ReportAcc implements Report {
             text.append(employee.getName()).append(";")
                     .append(DATE_FORMAT.format(employee.getHired().getTime())).append(";")
                     .append(DATE_FORMAT.format(employee.getFired().getTime())).append(";")
-                    .append(employee.getSalary() / 70).append(";")
+                    .append(employee.getSalary() / EXCHANGE_RATE).append(";")
                     .append(System.lineSeparator());
         }
         return text.toString();
