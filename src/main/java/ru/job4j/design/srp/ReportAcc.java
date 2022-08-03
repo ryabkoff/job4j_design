@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 public class ReportAcc implements Report {
     public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd:MM:yyyy HH:mm");
 
+    public static final double EXCHANGE_RATE = 70;
     private Store store;
 
     public ReportAcc(Store store) {
