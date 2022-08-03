@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 import static ru.job4j.design.srp.ReportEngine.DATE_FORMAT;
 
 public class ReportAccTest {
+
+    private static final double EXCHANGE_RATE = 70;
     @Test
     public void whenOldGenerated() {
         MemStore store = new MemStore();
@@ -22,7 +24,7 @@ public class ReportAccTest {
                 .append(worker.getName()).append(";")
                 .append(DATE_FORMAT.format(worker.getHired().getTime())).append(";")
                 .append(DATE_FORMAT.format(worker.getFired().getTime())).append(";")
-                .append(worker.getSalary() / 70).append(";")
+                .append(worker.getSalary() / EXCHANGE_RATE).append(";")
                 .append(System.lineSeparator());
         assertThat(engine.generate(em -> true), is(expect.toString()));
     }
