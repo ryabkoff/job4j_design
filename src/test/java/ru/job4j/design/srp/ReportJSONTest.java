@@ -18,8 +18,6 @@ public class ReportJSONTest {
         Employee worker = new Employee("Ivan", now, now, 100);
         store.add(worker);
         Report jSonReport = new ReportJSON(store);
-        //Gson gson = new GsonBuilder().create();
-        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
         String expect = String.format("[{\"name\":\"%s\","
                 + "\"hired\":{\"year\":%s,"
                         + "\"month\":%s,"
