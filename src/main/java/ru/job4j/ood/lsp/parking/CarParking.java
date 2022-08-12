@@ -21,12 +21,12 @@ public class CarParking implements Parking {
     }
 
     @Override
-    public void put(Car car) {
-
+    public boolean put(Car car) {
+        return false;
     }
 
     @Override
-    public void remove(Car car) {
-
+    public boolean remove(Car car) {
+        return false;
     }
 }
