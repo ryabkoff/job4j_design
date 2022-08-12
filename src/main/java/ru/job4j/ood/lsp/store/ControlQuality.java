@@ -10,7 +10,7 @@ public class ControlQuality {
         this.stores = stores;
     }
 
-    void allocate(Food food) {
+    public void allocate(Food food) {
         for (Store store : stores) {
             if (store.add(food)) {
                 break;
@@ -19,6 +19,6 @@ public class ControlQuality {
     }
 
     public List<Store> getStores() {
-        return stores;
+        return List.copyOf(stores);
     }
 }

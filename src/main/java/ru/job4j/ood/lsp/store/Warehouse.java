@@ -25,7 +25,7 @@ public class Warehouse implements Store {
 
     @Override
     public List<Food> getAll() {
-        return store;
+        return List.copyOf(store);
     }
 
     @Override
