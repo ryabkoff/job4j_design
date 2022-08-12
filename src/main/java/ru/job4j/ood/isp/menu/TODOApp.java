@@ -26,6 +26,7 @@ public class TODOApp {
         String parentName;
         String childName;
         Menu menu = new SimpleMenu();
+        SimpleMenuPrinter simpleMenuPrinter = new SimpleMenuPrinter();
         while (select != EXIT) {
             System.out.println(MSG);
             select = sc.nextInt();
@@ -38,7 +39,6 @@ public class TODOApp {
                         childName,
                         null);
             } else if (select == PRINT) {
-                SimpleMenuPrinter simpleMenuPrinter = new SimpleMenuPrinter();
                 simpleMenuPrinter.print(menu);
             }
         }
