@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 public class CarParkingTest {
 
-    @Disabled
     @Test
     public void whenParkingSize2Pass1TruckPut2Pass1Truck() {
         Parking parking = new CarParking(1, 2);
@@ -16,23 +15,19 @@ public class CarParkingTest {
         assertTrue(parking.put(new Truck(2)));
     }
 
-    @Disabled
     @Test
-    public void whenParkingSize2Pass1TruckPut1TrucSize1kAnd1TruckSize2() {
+    public void whenParkingSize2Pass1TruckPut2TrucSize2k() {
         Parking parking = new CarParking(1, 2);
-        assertTrue(parking.put(new Truck(1)));
+        assertTrue(parking.put(new Truck(2)));
         assertTrue(parking.put(new Truck(2)));
     }
 
-    @Disabled
     @Test
     public void whenParkingSize1Pass1TruckPut2Pass() {
         Parking parking = new CarParking(1, 0);
-        assertTrue(parking.put(new PassengerCar()));
         assertFalse(parking.put(new PassengerCar()));
     }
 
-    @Disabled
     @Test
     public void whenParkingSize1Pass1Truck1TruckPut2Pass() {
         Parking parking = new CarParking(1, 1);
@@ -40,11 +35,10 @@ public class CarParkingTest {
         assertFalse(parking.put(new PassengerCar()));
     }
 
-    @Disabled
     @Test
     public void whenParkingSize1TruckPut2Truck() {
-        Parking parking = new CarParking(0, 1);
-        assertTrue(parking.put(new Truck(1)));
-        assertFalse(parking.put(new Truck(1)));
+        Parking parking = new CarParking(1, 0);
+        assertTrue(parking.put(new Truck(2)));
+        assertFalse(parking.put(new Truck(2)));
     }
 }
