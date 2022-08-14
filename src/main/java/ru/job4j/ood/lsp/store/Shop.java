@@ -36,6 +36,11 @@ public class Shop implements Store {
                 && getPercent(food) < EXP_PERCENT_TO;
     }
 
+    @Override
+    public void clear() {
+        store.clear();
+    }
+
     private void applyDiscount(Food food) {
         if (getPercent(food) >= DISCOUNT_PERCENT) {
             food.setPrice(food.getPrice()

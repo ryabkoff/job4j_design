@@ -1,7 +1,5 @@
 package ru.job4j.ood.lsp.store;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +29,10 @@ public class Warehouse implements Store {
     @Override
     public boolean isFitByExpire(Food food) {
         return getPercent(food) < EXP_PERCENT_TO;
+    }
+
+    @Override
+    public void clear() {
+        store.clear();
     }
 }

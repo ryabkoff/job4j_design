@@ -31,4 +31,9 @@ public class Trash implements Store {
     public boolean isFitByExpire(Food food) {
         return getPercent(food) >= EXP_PERCENT_FROM;
     }
+
+    @Override
+    public void clear() {
+        store.clear();
+    }
 }

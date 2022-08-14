@@ -21,4 +21,15 @@ public class ControlQuality {
     public List<Store> getStores() {
         return List.copyOf(stores);
     }
+
+    public void resort() {
+        List<Food> listFood = new ArrayList<>();
+        for (Store store : stores) {
+            listFood.addAll(store.getAll());
+            store.clear();
+        }
+        for (Food food : listFood) {
+            allocate(food);
+        }
+    }
 }

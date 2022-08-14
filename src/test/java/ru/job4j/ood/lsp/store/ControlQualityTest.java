@@ -83,4 +83,30 @@ public class ControlQualityTest {
         assertThat(wareHouse.getAll()).isEqualTo(List.of(meat));
         assertThat(trash.getAll()).isEqualTo(List.of(milk));
     }
+
+    @Test
+    public void testResort() {
+        Store wareHouse = new Warehouse();
+        Store shop = new Shop();
+        Store trash = new Trash();
+        Food fruit = new Fruit("apple",
+                LocalDate.now().plusMonths(5),
+                LocalDate.now().minusMonths(5),
+                100, 5);
+        Food meat = new Fruit("meat",
+                LocalDate.now().plusMonths(9),
+                LocalDate.now().minusMonths(1),
+                100, 5);
+        Food milk = new Fruit("milk",
+                LocalDate.now().plusMonths(0),
+                LocalDate.now().minusMonths(10),
+                100, 5);
+        List<Food> food = List.of(fruit, meat, milk);
+        ControlQuality cq = new ControlQuality(List.of(wareHouse, shop, trash));
+        food.forEach(cq::allocate);
+        cq.resort();
+        assertThat(shop.getAll()).isEqualTo(List.of(fruit));
+        assertThat(wareHouse.getAll()).isEqualTo(List.of(meat));
+        assertThat(trash.getAll()).isEqualTo(List.of(milk));
+    }
 }

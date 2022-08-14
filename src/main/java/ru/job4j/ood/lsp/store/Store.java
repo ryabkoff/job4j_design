@@ -9,6 +9,7 @@ public interface Store {
     Food get(int index);
     List<Food> getAll();
     boolean isFitByExpire(Food food);
+    void clear();
 
     default double getPercent(Food food) {
         double total = food.getCreateDate().until(food.getExpiryDate(), ChronoUnit.DAYS);
