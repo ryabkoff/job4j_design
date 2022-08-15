@@ -46,9 +46,7 @@ public class CarParkingTest {
     public void whenParkingDuplicateCar() {
         Parking parking = new CarParking(1, 0);
         assertTrue(parking.put(new Truck("987", 2)));
-        assertThatThrownBy(() -> parking.put(new Truck("987", 2)))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("уже припаркован");
+        assertFalse(parking.put(new Truck("987", 2)));
     }
 
     @Test
@@ -56,8 +54,8 @@ public class CarParkingTest {
         Parking parking = new CarParking(1, 1);
         Car car = new PassengerCar("123");
         parking.put(car);
-        assertTrue(parking.remove(car));
-        assertThat(parking.getFreePassSeats()).isEqualTo(0);
+        assertTrue(parking.remove("123"));
+        assertThat(parking.getFreePassSeats()).isEqualTo(1);
         assertThat(parking.getFreeTruckSeats()).isEqualTo(1);
     }
 
@@ -66,9 +64,9 @@ public class CarParkingTest {
         Parking parking = new CarParking(1, 1);
         Car car = new Truck("123", 2);
         parking.put(car);
-        assertTrue(parking.remove(car));
+        assertTrue(parking.remove("123"));
         assertThat(parking.getFreePassSeats()).isEqualTo(1);
-        assertThat(parking.getFreeTruckSeats()).isEqualTo(0);
+        assertThat(parking.getFreeTruckSeats()).isEqualTo(1);
     }
 
     @Test
@@ -76,8 +74,8 @@ public class CarParkingTest {
         Parking parking = new CarParking(0, 2);
         Car car = new Truck("123", 2);
         parking.put(car);
-        assertTrue(parking.remove(car));
-        assertThat(parking.getFreePassSeats()).isEqualTo(0);
+        assertTrue(parking.remove("123"));
+        assertThat(parking.getFreePassSeats()).isEqualTo(2);
         assertThat(parking.getFreeTruckSeats()).isEqualTo(0);
     }
 }

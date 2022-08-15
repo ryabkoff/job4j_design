@@ -1,9 +1,6 @@
 package ru.job4j.ood.lsp.parking;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /*
 Парковка автомобилей
@@ -26,8 +23,7 @@ public class CarParking implements Parking {
     @Override
     public boolean put(Car car) {
         if (passStore.contains(car) || truckStore.contains(car)) {
-            throw new IllegalArgumentException(
-                    String.format("Автомобиль с номером %s уже припаркован", car.getNumber()));
+            return false;
         }
         boolean rsl = false;
         if (car.getSize() == PassengerCar.SIZE
@@ -47,8 +43,19 @@ public class CarParking implements Parking {
     }
 
     @Override
-    public boolean remove(Car car) {
-        return passStore.remove(car) || truckStore.remove(car);
+    public boolean remove(String number) {
+        boolean rsl = false;
+        Car car = findByNumber(number);
+        if (car != null) {
+            if (passStore.contains(car)) {
+                rsl = passStore.remove(car);
+                occupiedPass -= car.getSize();
+            } else if (truckStore.contains(car)) {
+                rsl = truckStore.remove(car);
+                occupiedTruck--;
+            }
+        }
+        return rsl;
     }
 
     @Override
@@ -59,5 +66,24 @@ public class CarParking implements Parking {
     @Override
     public int getFreeTruckSeats() {
         return seatsTruck - occupiedTruck;
+    }
+
+    private Car findByNumber(String number) {
+        Car rsl = null;
+        for (Car car : passStore) {
+            if (number.equals(car.getNumber())) {
+                rsl = car;
+                break;
+            }
+        }
+        if (rsl == null) {
+            for (Car car : truckStore) {
+                if (number.equals(car.getNumber())) {
+                    rsl = car;
+                    break;
+                }
+            }
+        }
+        return rsl;
     }
 }
